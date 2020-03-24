@@ -16,7 +16,6 @@ class FetchData extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            Teacherlist : [],
             loading : true
         }
     }
@@ -24,9 +23,6 @@ class FetchData extends React.Component {
     componentDidMount() {
         setTimeout(async () => {
             const dataRef = await DB.ref('faculty/').on('child_added', snaps => {
-            this.setState({
-                Teacherlist : [snaps.val()]
-            })
             listt.push(snaps.val())
             })
             console.log(listt)
